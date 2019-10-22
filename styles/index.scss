@@ -1,0 +1,186 @@
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$distances: (0, 4, 5, 8, 10, 16, 20, 30, 32, 40, 48, 50, 64, 128, 256);
+
+// ----------------------------------------------------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// ----------------------------------------------------------------------------
+
+html,
+body,
+#__next {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+// ----------------------------------------------------------------------------
+
+.main-menu {
+  background: #333;
+  padding: 0;
+  margin: 0;
+}
+
+.main-menu__ul {
+  justify-content: flex-start;
+  align-items: baseline;
+  flex-direction: row;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.main-menu__li {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.main-menu__a {
+  display: block;
+  color: #fff;
+  padding: 16px;
+  margin: 0;
+}
+
+.main-menu__a:hover {
+  background: #666;
+}
+
+// ----------------------------------------------------------------------------
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+// ----------------------------------------------------------------------------
+
+.columns {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.column {
+  flex: 1 1 auto;
+}
+
+.column:nth-child(1) {
+  width: 40%;
+}
+
+.column:nth-child(2) {
+  width: 20%;
+}
+
+.column:nth-child(3) {
+  width: 40%;
+}
+
+textarea {
+  resize: vertical;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+// ----------------------------------------------------------------------------
+
+@mixin media-up($name) {
+  $min: map-get($breakpoints, $name);
+
+  @if $name == "xs" {
+    @content;
+  } @else {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+}
+
+@each $breakpoint, $min in $breakpoints {
+  $prefix: "#{$breakpoint}\\:";
+
+  @if $breakpoint == "xs" {
+    $prefix: "";
+  }
+
+  @include media-up($breakpoint) {
+    @each $distance in $distances {
+      .#{$prefix}m-#{$distance},
+      .#{$prefix}my-#{$distance},
+      .#{$prefix}mt-#{$distance} {
+        margin-top: #{$distance}px;
+      }
+      .#{$prefix}m-#{$distance},
+      .#{$prefix}mx-#{$distance},
+      .#{$prefix}mr-#{$distance} {
+        margin-right: #{$distance}px;
+      }
+      .#{$prefix}m-#{$distance},
+      .#{$prefix}my-#{$distance},
+      .#{$prefix}mb-#{$distance} {
+        margin-bottom: #{$distance}px;
+      }
+      .#{$prefix}m-#{$distance},
+      .#{$prefix}mx-#{$distance},
+      .#{$prefix}ml-#{$distance} {
+        margin-left: #{$distance}px;
+      }
+
+      .#{$prefix}p-#{$distance},
+      .#{$prefix}py-#{$distance},
+      .#{$prefix}pt-#{$distance} {
+        padding-top: #{$distance}px;
+      }
+      .#{$prefix}p-#{$distance},
+      .#{$prefix}px-#{$distance},
+      .#{$prefix}pr-#{$distance} {
+        padding-right: #{$distance}px;
+      }
+      .#{$prefix}p-#{$distance},
+      .#{$prefix}py-#{$distance},
+      .#{$prefix}pb-#{$distance} {
+        padding-bottom: #{$distance}px;
+      }
+      .#{$prefix}p-#{$distance},
+      .#{$prefix}px-#{$distance},
+      .#{$prefix}pl-#{$distance} {
+        padding-left: #{$distance}px;
+      }
+    }
+
+    .#{$prefix}mx-auto {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------
