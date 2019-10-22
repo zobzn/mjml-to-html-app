@@ -1,3 +1,15 @@
+// https://www.mailjet.com/
+// https://www.mailjet.com/demo/
+// https://app.mailjet.com/template/1052975/build
+// https://github.com/mjmlio/mjml
+// https://mjmlio.github.io/mjml-app/
+// https://github.com/artf/grapesjs-mjml
+// https://github.com/unlayer/react-email-editor
+// http://www.konvey.com/wysiwyg-email-builder/
+// https://beefree.io/editor/undefined
+// https://github.com/wix-incubator/mjml-react
+// https://medium.com/@andrewlaurentiu/best-responsive-email-templates-builder-2018-9dedb6883783
+
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import "../styles/index.scss";
