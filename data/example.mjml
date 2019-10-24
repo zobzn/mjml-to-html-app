@@ -8,7 +8,7 @@
       </mj-column>
     </mj-section>
 
-    <mj-section background-url="//1.bp.blogspot.com/-TPrfhxbYpDY/Uh3Refzk02I/AAAAAAAALw8/5sUJ0UUGYuw/s1600/New+York+in+The+1960's+-+70's+(2).jpg" background-size="cover" background-repeat="no-repeat">
+    <mj-section background-url="https://picsum.photos/seed/header/900/340" background-size="cover" background-repeat="no-repeat">
       <mj-column>
         <mj-text align="center" color="#fff" font-size="40px" font-family="Helvetica Neue">Slogan here</mj-text>
         <mj-button background-color="#F63A4D" href="#">
@@ -30,7 +30,7 @@
 
     <mj-section background-color="white">
       <mj-column>
-        <mj-image width="200px" src="https://designspell.files.wordpress.com/2012/01/sciolino-paris-bw.jpg" />
+        <mj-image width="200px" src="https://picsum.photos/seed/content-image/600/400" />
       </mj-column>
       <mj-column>
         <mj-text font-style="italic" font-size="20px" font-family="Helvetica Neue" color="#626262">
@@ -43,13 +43,13 @@
 
     <mj-section background-color="#fbfbfb">
       <mj-column>
-        <mj-image width="100px" src="//191n.mj.am/img/191n/3s/x0l.png" />
+        <mj-image width="100px" src="https://picsum.photos/seed/content-image-1/100/100" />
       </mj-column>
       <mj-column>
-        <mj-image width="100px" src="//191n.mj.am/img/191n/3s/x01.png" />
+        <mj-image width="100px" src="https://picsum.photos/seed/content-image-2/100/100" />
       </mj-column>
       <mj-column>
-        <mj-image width="100px" src="//191n.mj.am/img/191n/3s/x0s.png" />
+        <mj-image width="100px" src="https://picsum.photos/seed/content-image-3/100/100" />
       </mj-column>
     </mj-section>
 
