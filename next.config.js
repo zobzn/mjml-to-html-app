@@ -1,7 +1,6 @@
 const path = require("path");
-const withSass = require("@zeit/next-sass");
 
-module.exports = withSass({
+module.exports = {
   webpack(config, options) {
     const { isServer } = options;
 
@@ -9,10 +8,10 @@ module.exports = withSass({
       config.resolve.alias = {
         ...config.resolve.alias,
         fs: path.resolve(__dirname, "mocks/fs"),
-        "uglify-js": path.resolve(__dirname, "mocks/uglify-js")
+        "uglify-js": path.resolve(__dirname, "mocks/uglify-js"),
       };
     }
 
     return config;
-  }
-});
+  },
+};

@@ -1,19 +1,22 @@
 {
-  "name": "mjml-test",
+  "name": "mjml.zobzn.com",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "export": "next export",
+    "start": "next start",
+    "prettier": "prettier --write ."
   },
   "dependencies": {
-    "@zeit/next-sass": "^1.0.1",
-    "mjml": "^4.5.1",
-    "next": "^9.1.1",
-    "node-sass": "^4.12.0",
-    "raw-loader": "^3.1.0",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "mjml": "^4.6.2",
+    "next": "9.3.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "sass": "^1.26.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.4"
   }
 }

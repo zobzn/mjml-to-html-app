@@ -1,4 +1,21 @@
-<mjml>
+// https://www.mailjet.com/
+// https://www.mailjet.com/demo/
+// https://app.mailjet.com/template/1052975/build
+// https://github.com/mjmlio/mjml
+// https://mjmlio.github.io/mjml-app/
+// https://github.com/artf/grapesjs-mjml
+// https://github.com/unlayer/react-email-editor
+// http://www.konvey.com/wysiwyg-email-builder/
+// https://beefree.io/editor/undefined
+// https://github.com/wix-incubator/mjml-react
+// https://medium.com/@andrewlaurentiu/best-responsive-email-templates-builder-2018-9dedb6883783
+
+import React, { useState } from "react";
+import Head from "next/head";
+import mjml from "mjml";
+import Iframe from "../components/Iframe";
+
+const initialSrc = `<mjml>
   <mj-body>
     <mj-section background-color="#f0f0f0">
       <mj-column>
@@ -70,4 +87,67 @@
       </mj-column>
     </mj-section>
   </mj-body>
-</mjml>
+</mjml>`;
+
+const mjml2html = (src) => {
+  let result;
+
+  try {
+    result = mjml(src, {
+      filePath: null,
+      fonts: {},
+      beautify: true,
+      minify: false,
+    });
+  } catch (err) {
+    result = {
+      errors: [err.message],
+      html: null,
+    };
+  }
+
+  return result;
+};
+
+const initialRes = mjml2html(initialSrc || "").html;
+
+export default function Index() {
+  const [src, setSrc] = useState(initialSrc || "");
+  const [res, setRes] = useState(initialRes || "");
+  const [errors, setErrors] = useState([]);
+
+  const onChange = (e) => {
+    let source = e.target.value;
+    let result = mjml2html(source);
+
+    setSrc(source || "");
+    setRes(result.html || "");
+    setErrors(result.errors || []);
+  };
+
+  // {errors.map(e => (
+  // <p key={e}>{e}</p>
+  // ))}
+
+  return (
+    <div className="columns">
+      <Head>
+        <title>Home</title>
+      </Head>
+
+      <div className="column">
+        <textarea
+          value={src}
+          style={{ width: "100%" }}
+          onChange={onChange}
+        ></textarea>
+      </div>
+      <div className="column">
+        <textarea value={res} style={{ width: "100%" }} readOnly></textarea>
+      </div>
+      <div className="column">
+        <Iframe html={res} />
+      </div>
+    </div>
+  );
+}
